@@ -1,0 +1,67 @@
+<html>
+
+<head>
+    <title>Curso de Javascript</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" id="nome-input" name="nome" placeholder="nome" class="input-class" />
+        <input type="number" id="idade-input" name="idade" placeholder="idade" class="input-class" />
+        <button id="btn-adicionar" class="botao">Adicionar</button>
+    </div>
+    <div id="div-create-element">
+        <h2>Criação de elementos</h2>
+        <input id="input-create-element" />
+        <button id="btn-create-element">Criar Elemento</button>
+    </div>
+    <script>
+        var inputElement = document.getElementById('nome-input');
+        console.log(inputElement);
+
+        var inputsElements = document.getElementsByTagName('input');
+        console.log(inputsElements);
+
+        var inputsElementsByClass = document.getElementsByClassName('input-class');
+        console.log(inputsElementsByClass);
+
+        var endereco = {
+            rua: "Rua dos pinheiros",
+            numero: 1293,
+            bairro: "Centro",
+            cidade: "São Paulo",
+            uf: "SP"
+        };
+
+        function formataDados(endereco) {
+            console.log('O usuário mora em ' + cidade + ' / ' + uf);
+        }
+
+        // document.querySelector
+        var inputNome = document.querySelector("#nome-input");
+        var inputIdade = document.querySelector("#idade-input");
+        var buttonAdicionar = document.querySelector('button#btn-adicionar');
+
+        buttonAdicionar.onclick = function() {
+            var text = inputNome.value + ", " + inputIdade.value;
+            alert(text);
+        }
+
+        // document.createElement
+        var buttonCreateElement = document.querySelector('#btn-create-element');
+
+        buttonCreateElement.onclick = function() {
+            var input = document.querySelector('#input-create-element');
+            var textElement = document.createTextNode(input.value);
+
+            var linkElement = document.createElement('a');
+            linkElement.setAttribute('href', 'https://google.com.br');
+            linkElement.appendChild(textElement);
+
+            var divCreateElement = document.querySelector('#div-create-element');
+            divCreateElement.appendChild(linkElement);
+        }
+    </script>
+</body>
+
+</html>
